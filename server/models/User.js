@@ -41,6 +41,10 @@ const UserSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
+    isVerified: {
+        type: Boolean, default: false
+    },
+    verification: String,
     posts: [
       {
         type: mongoose.Schema.Types.ObjectId,

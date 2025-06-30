@@ -10,6 +10,17 @@ This is a blog website where users can:
 
 ## Features
 - User authentication (registration, login, logout)
+
+### UI
+1. Sign Up page
+    - User visits the sign up page
+    - User fills in details: username, email, password, confirm password.
+    - User submits the form.
+    - a message showing:"Check your email to verify your account"
+    - backend sends a verification email with a unique token.
+
+
+
 - Create, edit, and delete blog posts
 - View a list of all blog posts
 - Search functionality for blog posts
