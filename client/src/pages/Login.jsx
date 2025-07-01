@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 // import axios from 'axios';
 
 export default function Signup() {
-  const [formData, setFormData] = useState({ username: '', email: '', password: '' });
+  const [formData, setFormData] = useState({email: '', password: '' });
   const [message, setMessage] = useState('');
 
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -14,7 +14,7 @@ export default function Signup() {
   const onSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await authService.register(formData);
+      const res = await authService.login(formData);
       setMessage(res.data.message);
     } catch (err) {
       setMessage(err.response?.data?.message || 'Error signing up');
@@ -23,7 +23,7 @@ export default function Signup() {
 
   return (
     <div>
-      <h2>Sign Up</h2>
+      <h2>LogIn</h2>
       <form onSubmit={onSubmit}>
 
         <label htmlFor="email">email:</label> 
@@ -31,7 +31,7 @@ export default function Signup() {
 
         <label htmlFor="passwod">Password:</label>
         <input type="password" name="password" placeholder="Password" onChange={onChange} required /> <br />
-        <button type="submit">Sign Up</button>
+        <button type="submit">LogIn</button>
       </form>
       <p>{message}</p>
     </div>

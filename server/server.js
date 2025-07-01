@@ -56,26 +56,15 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Connect to MongoDB and start server
-async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    // await client.db("admin").command({ ping: 1 });
-    // console.log("Pinged your deployment. You successfully connected to MongoDB!");
+// Connect to MongoDB Atlas
+mongoose.connect(client.s.url, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to MongoDB Atlas'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
-    app.listen(process.env.PORT, () => {
-      console.log(`server is up and running http://localhost:${process.env.PORT}/`);
-    })
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-run().catch(console.dir);
-
-
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err) => {
