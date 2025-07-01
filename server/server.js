@@ -66,7 +66,7 @@ async function run() {
     // console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
     app.listen(process.env.PORT, () => {
-      console.log('server is up and running');
+      console.log(`server is up and running http://localhost:${process.env.PORT}/`);
     })
   } finally {
     // Ensures that the client will close when you finish/error
