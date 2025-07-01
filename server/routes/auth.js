@@ -17,6 +17,7 @@ const transporter = nodemailer.createTransport({
 
 // POST /api/auth/signup
 router.post('/signup', async (req, res) => {
+  console.log('login req', req.body);
   const { username, email, password } = req.body;
   try {
     let user = await User.findOne({ email });
