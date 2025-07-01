@@ -7,9 +7,11 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
 
+const client = require('./config/database');
+
 // Import routes
-const postRoutes = require('./routes/posts');
-const categoryRoutes = require('./routes/categories');
+// const postRoutes = require('./routes/posts');
+// const categoryRoutes = require('./routes/categories');
 const authRoutes = require('./routes/auth');
 
 // Load environment variables
@@ -36,8 +38,8 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // API routes
-app.use('/api/posts', postRoutes);
-app.use('/api/categories', categoryRoutes);
+// app.use('/api/posts', postRoutes);
+// app.use('/api/categories', categoryRoutes);
 app.use('/api/auth', authRoutes);
 
 // Root route
@@ -55,18 +57,25 @@ app.use((err, req, res, next) => {
 });
 
 // Connect to MongoDB and start server
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => {
-    console.log('Connected to MongoDB');
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.error('Failed to connect to MongoDB', err);
-    process.exit(1);
-  });
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    // await client.db("admin").command({ ping: 1 });
+    // console.log("Pinged your deployment. You successfully connected to MongoDB!");
+
+    app.listen(process.env.PORT, () => {
+      console.log('server is up and running');
+    })
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
+
+
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err) => {
@@ -75,4 +84,4 @@ process.on('unhandledRejection', (err) => {
   process.exit(1);
 });
 
-module.exports = app; 
+module.exports = app;
