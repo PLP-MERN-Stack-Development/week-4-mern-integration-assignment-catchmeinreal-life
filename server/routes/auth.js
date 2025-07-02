@@ -21,7 +21,7 @@ router.post('/signup', async (req, res) => {
     if (user) return res.status(400).json({ message: 'Email already registered' });
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const verificationToken = crypto.randomBytes(32).toString('hex');
+    const verificationToken =await crypto.randomBytes(32).toString('hex');
 
     user = new User({ name, email, password: hashedPassword, verificationToken });
     await user.save();
@@ -51,7 +51,10 @@ router.get('/verify/:token', async (req, res) => {
     user.verificationToken = undefined;
     await user.save();
 
-    res.status(200).json({ message: 'Email verified successfully' });
+    res.status(200).json({ 
+      message: 'Email verified successfully',
+      data: user,
+    });
   } catch (error) {
     res.status(500).json({ message: 'Server error' });
   }

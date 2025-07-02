@@ -44,7 +44,7 @@ const UserSchema = new mongoose.Schema(
     isVerified: {
         type: Boolean, default: false
     },
-    verification: String,
+    verificationToken: String,
     posts: [
       {
         type: mongoose.Schema.Types.ObjectId,

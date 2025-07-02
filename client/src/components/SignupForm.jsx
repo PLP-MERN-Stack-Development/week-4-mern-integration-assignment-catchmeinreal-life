@@ -32,7 +32,7 @@ function SignupForm()  {
         autoClose: 2000, // Closes after 2 seconds
       })
       setTimeout(() => {
-        navigate('/login'); // navigate to login page after successful signup
+        navigate('/verification'); // navigate to login page after successful signup
       },3000); // navigate after 3 seconds
       setIsLoading(false); // set loading to false after successful signup
     } catch (err) {
