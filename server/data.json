@@ -1,22 +1,22 @@
 {
-  "token": "e47c943d428408119d201aa60699a286f6edaffc0850af9abb1715feab20e874",
+  "token": "2e9a4031a1bd4c689f03ba4015945b9992e67d354c240dece7b95c5d62c95727",
   "from": "ericmatutu125@gmail.com",
-  "to": "eric@gmail.com",
+  "to": "cheche@gmail.com",
   "subject": "Verify Your Email",
-  "html": "<p>Click <a href=\"http://localhost:5000/verify/e47c943d428408119d201aa60699a286f6edaffc0850af9abb1715feab20e874\">here</a> to verify your email.</p>",
+  "html": "<p>Click <a href=\"http://localhost:5000/verify/2e9a4031a1bd4c689f03ba4015945b9992e67d354c240dece7b95c5d62c95727\">here</a> to verify your email.</p>",
   "data": {
-    "name": "eric",
-    "email": "eric@gmail.com",
-    "password": "$2b$10$RiixqCR/Fdt0PWhKWiIbFuf5xE3CWIJy3M3cMA4MMURV5IkD9PETS",
+    "name": "cheche",
+    "email": "cheche@gmail.com",
+    "password": "$2b$10$vDovdjxDr14sw/ORdTAzVO/BP97PxF5ltcMRpZWHQgaG0N6kyMbRu",
     "avatar": "default-avatar.jpg",
     "role": "user",
     "isActive": true,
     "isVerified": false,
-    "verificationToken": "e47c943d428408119d201aa60699a286f6edaffc0850af9abb1715feab20e874",
+    "verificationToken": "2e9a4031a1bd4c689f03ba4015945b9992e67d354c240dece7b95c5d62c95727",
     "posts": [],
-    "_id": "68657839f6e40546001f28ad",
-    "createdAt": "2025-07-02T18:19:37.395Z",
-    "updatedAt": "2025-07-02T18:19:37.395Z",
+    "_id": "686579baaeb2685864afe4b9",
+    "createdAt": "2025-07-02T18:26:02.060Z",
+    "updatedAt": "2025-07-02T18:26:02.060Z",
     "__v": 0
   }
 }

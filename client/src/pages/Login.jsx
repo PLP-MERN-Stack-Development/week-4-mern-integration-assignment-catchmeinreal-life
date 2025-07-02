@@ -3,9 +3,20 @@
 
 import { authService } from '../services/api'
 import React, { useState } from 'react';
+
+
 // import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+// import { useEffect } from 'react';
+
+
+
 
 export default function Signup() {
+  const [isLoading, setIsLoading] = useState(false); 
+  const navigate = useNavigate();
+  
   const [formData, setFormData] = useState({email: '', password: '' });
   const [message, setMessage] = useState('');
 
@@ -13,11 +24,24 @@ export default function Signup() {
 
   const onSubmit = async e => {
     e.preventDefault();
+    setIsLoading(true);
+
     try {
       const res = await authService.login(formData);
-      setMessage(res.data.message);
+      console.log(res.status, res.data, res.message);
+      setMessage(res.data);
+      toast.success(res.message, {
+        autoClose: 2000, // Closes after 2 seconds
+      })
+      setTimeout(() => {
+        navigate('/blog'); // navigate to login page after successful signup
+      },3000); // navigate after 3 seconds
+      setIsLoading(false); // set loading to false after successful signup
     } catch (err) {
-      setMessage(err.response?.data?.message || 'Error signing up');
+      setMessage(err.response?.data?.message || 'Error logging in');
+      toast.error(err.response?.data?.message || 'Error logging in');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -31,9 +55,10 @@ export default function Signup() {
 
         <label htmlFor="passwod">Password:</label>
         <input type="password" name="password" placeholder="Password" onChange={onChange} required /> <br />
-        <button type="submit">LogIn</button>
+        <button type="submit">{isLoading ? 'LogIn...' : 'Login.'}</button>
       </form>
       <p>{message}</p>
+      <ToastContainer />
     </div>
   );
 }
