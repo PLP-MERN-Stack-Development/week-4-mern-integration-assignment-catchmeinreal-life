@@ -15,6 +15,7 @@ export default function Signup() {
     e.preventDefault();
     try {
       const res = await authService.register(formData);
+      console.log(res.message);
       setMessage(res.data);
     } catch (err) {
       console.log(err)

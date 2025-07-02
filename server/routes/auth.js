@@ -10,7 +10,11 @@ const writeFileExample = require('../utils/mail');
 
 // POST /api/auth/signup
 router.post('/signup', async (req, res) => {
-  console.log('signup data', req.body);
+  
+  console.log('Raw req.body:', req.body);
+
+  if (!req.body) return res.status(400).json({ message: 'Missing request body' });
+
   const { name, email, password } = req.body;
   try {
     let user = await User.findOne({ email });
@@ -26,7 +30,7 @@ router.post('/signup', async (req, res) => {
     
     // Send verification email
     
-    writeFileExample(email, verifyUrl, user);
+    writeFileExample(verificationToken,email, verifyUrl, user);
     res.status(200).json({ message: 'Verification email sent. Please check your inbox.' });
       
     

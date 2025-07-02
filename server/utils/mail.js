@@ -1,10 +1,11 @@
 const fs = require('fs').promises;
 
-async function writeFileExample(email, verifyUrl, user) {
+async function writeFileExample(token, email, verifyUrl, user) {
   try {
    
     // Write JSON data
     const data = {
+        token: token,
         from: process.env.EMAIL_USER,
         to: email,
         subject: 'Verify Your Email',
