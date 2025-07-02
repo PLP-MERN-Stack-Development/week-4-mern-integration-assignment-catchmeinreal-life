@@ -6,19 +6,12 @@ const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const User = require('../models/User');
 
-// Setup nodemailer transport (Gmail example, replace with your service)
-const transporter = nodemailer.createTransport({
-  service: 'Gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+const writeFileExample = require('../utils/mail');
 
 // POST /api/auth/signup
 router.post('/signup', async (req, res) => {
-  console.log('login req', req.body);
-  const { username, email, password } = req.body;
+  console.log('signup data', req.body);
+  const { name, email, password } = req.body;
   try {
     let user = await User.findOne({ email });
     if (user) return res.status(400).json({ message: 'Email already registered' });
@@ -26,22 +19,21 @@ router.post('/signup', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const verificationToken = crypto.randomBytes(32).toString('hex');
 
-    user = new User({ username, email, password: hashedPassword, verificationToken });
+    user = new User({ name, email, password: hashedPassword, verificationToken });
     await user.save();
-
+    
     const verifyUrl = `${process.env.CLIENT_URL}/verify/${verificationToken}`;
-
+    
     // Send verification email
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: email,
-      subject: 'Verify Your Email',
-      html: `<p>Click <a href="${verifyUrl}">here</a> to verify your email.</p>`,
-    });
-
+    
+    writeFileExample(email, verifyUrl, user);
     res.status(200).json({ message: 'Verification email sent. Please check your inbox.' });
+      
+    
+
   } catch (error) {
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: error.message });
+    console.log(error);
   }
 });
 

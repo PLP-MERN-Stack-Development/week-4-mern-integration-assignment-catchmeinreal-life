@@ -1,0 +1,20 @@
+{
+  "from": "ericmatutu125@gmail.com",
+  "to": "ericmatutwu125@gmail.com",
+  "subject": "Verify Your Email",
+  "html": "<p>Click <a href=\"http://localhost:5173/verify/c0aa6c07c6c0a9acf993263ede6a098ec35e4bbfc45d94231a36780a3b6fd5b4\">here</a> to verify your email.</p>",
+  "data": {
+    "name": "eric",
+    "email": "ericmatutwu125@gmail.com",
+    "password": "$2b$10$c5l444haKVo12/Xt9KpWJeOHGVaMZExTR47V2JJam5SHC3ogbTEIi",
+    "avatar": "default-avatar.jpg",
+    "role": "user",
+    "isActive": true,
+    "isVerified": false,
+    "posts": [],
+    "_id": "6864b5fbbbffeb247e37db02",
+    "createdAt": "2025-07-02T04:30:51.143Z",
+    "updatedAt": "2025-07-02T04:30:51.143Z",
+    "__v": 0
+  }
+}

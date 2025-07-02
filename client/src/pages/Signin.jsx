@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 // import axios from 'axios';
 
 export default function Signup() {
-  const [formData, setFormData] = useState({ username: '', email: '', password: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const [message, setMessage] = useState('');
 
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,8 +15,9 @@ export default function Signup() {
     e.preventDefault();
     try {
       const res = await authService.register(formData);
-      setMessage(res.data.message);
+      setMessage(res.data);
     } catch (err) {
+      console.log(err)
       setMessage(err.response?.data?.message || 'Error signing up');
     }
   };
@@ -38,7 +39,7 @@ export default function Signup() {
 
       <form onSubmit={onSubmit}>
 
-        <input type="text" name="username" placeholder="Username" onChange={onChange} required /> <br />
+        <input type="text" name="name" placeholder="Username" onChange={onChange} required /> <br />
         <input type="email" name="email" placeholder="Email" onChange={onChange} required /> <br />
         <input type="password" name="password" placeholder="Password" onChange={onChange} required />
         <br />
