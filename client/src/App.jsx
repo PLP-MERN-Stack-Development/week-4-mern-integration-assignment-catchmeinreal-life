@@ -4,6 +4,17 @@ import Home from './pages/Home';
 import SignUpPage from './pages/Signin';
 import Login from './pages/Login';
 
+/**
+ * verification page
+ */
+import Verification from './pages/Verification';
+
+/**
+ * 
+ * @returns 
+ */
+import NotFound from './pages/NotFound';
+
 
 export default function App() {
 
@@ -14,8 +25,19 @@ export default function App() {
         <Route path='/login' element={<Login />}/>
         <Route path='/signup' element={<SignUpPage />}/>
         <Route path='/' element={<Home />}/>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   )
 }
-
+    // <BrowserRouter>
+    //   <Routes>
+    //     <Route path="/" element={<Index />} />
+    //     <Route path="/auth/signin" element={<SignIn />} />
+    //     <Route path="/auth/signup" element={<SignUp />} />
+    //     <Route path="/profile" element={<Profile />} />
+    //     <Route path="/shop" element={<Shop />} />
+    //     <Route path="/product/:id" element={<ProductDetail />} />
+    //     <Route path="*" element={<NotFound />} />
+    //   </Routes>
+    // </BrowserRouter>
