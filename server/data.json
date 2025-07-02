@@ -1,15 +1,4 @@
 {
-<<<<<<< HEAD
-  "token": "2873078412a8dbc3b7619439343c8fc63d6f5d75f2478f9dcf22e0bb9cfd8b07",
-  "from": "ericmatutu125@gmail.com",
-  "to": "ericmatutu125@gmail.com",
-  "subject": "Verify Your Email",
-  "html": "<p>Click <a href=\"http://localhost:5173/verify/2873078412a8dbc3b7619439343c8fc63d6f5d75f2478f9dcf22e0bb9cfd8b07\">here</a> to verify your email.</p>",
-  "data": {
-    "name": "eric",
-    "email": "ericmatutu125@gmail.com",
-    "password": "$2b$10$7zg94pPevTBkRKAJXT8zHu4oV8pqO3lp5G8ia3DK036QQ8F3FOlOe",
-=======
   "token": "2e9a4031a1bd4c689f03ba4015945b9992e67d354c240dece7b95c5d62c95727",
   "from": "ericmatutu125@gmail.com",
   "to": "cheche@gmail.com",
@@ -19,23 +8,15 @@
     "name": "cheche",
     "email": "cheche@gmail.com",
     "password": "$2b$10$vDovdjxDr14sw/ORdTAzVO/BP97PxF5ltcMRpZWHQgaG0N6kyMbRu",
->>>>>>> 50962d7 (### Task 1: Project Setup)
     "avatar": "default-avatar.jpg",
     "role": "user",
     "isActive": true,
     "isVerified": false,
-<<<<<<< HEAD
-    "posts": [],
-    "_id": "6864fcbd57751b6c85326a69",
-    "createdAt": "2025-07-02T09:32:45.318Z",
-    "updatedAt": "2025-07-02T09:32:45.318Z",
-=======
     "verificationToken": "2e9a4031a1bd4c689f03ba4015945b9992e67d354c240dece7b95c5d62c95727",
     "posts": [],
     "_id": "686579baaeb2685864afe4b9",
     "createdAt": "2025-07-02T18:26:02.060Z",
     "updatedAt": "2025-07-02T18:26:02.060Z",
->>>>>>> 50962d7 (### Task 1: Project Setup)
     "__v": 0
   }
 }

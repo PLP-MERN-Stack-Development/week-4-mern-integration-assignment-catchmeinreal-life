@@ -24,6 +24,7 @@ export default function App() {
       <Routes>
         <Route path='/login' element={<Login />}/>
         <Route path='/signup' element={<SignUpPage />}/>
+        <Route path='/verification' element={<Verification />}/>
         <Route path='/' element={<Home />}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
