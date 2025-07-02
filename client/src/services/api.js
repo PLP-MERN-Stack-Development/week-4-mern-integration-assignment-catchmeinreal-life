@@ -121,6 +121,16 @@ export const authService = {
     return response.data;
   },
 
+  // verify user
+  verify: async (token) => {
+    const response = await api.get(`auth/verify/${token}`);
+    if (response.data.token) {
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('user', response.data.user);
+    }
+    return response.data;
+  },
+
   // Logout user
   logout: () => {
     localStorage.removeItem('token');

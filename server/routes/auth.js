@@ -26,7 +26,7 @@ router.post('/signup', async (req, res) => {
     user = new User({ name, email, password: hashedPassword, verificationToken });
     await user.save();
     
-    const verifyUrl = `${process.env.CLIENT_URL}/verify/${verificationToken}`;
+    const verifyUrl = `${process.env.SERVER_URL}/verify/${verificationToken}`;
     
     // Send verification email
     
