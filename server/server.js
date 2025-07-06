@@ -1,3 +1,4 @@
+'use strict';
 // server.js - Main server file for the MERN blog application
 
 // Import required modules
