@@ -1,21 +1,40 @@
-const dotenv = require('dotenv');
-const mongoose = require('mongoose');
+const express = require('express');
+const router = express.Router();
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
+const nodemailer = require('nodemailer');
+const User = require('../models/User');
 
-// Load environment variables
-dotenv.config();
+const { addPost, getPosts, getPostById, updatePost, deletePost } = require('../controllers/blogController');
 
-try {
-  /**
-   * MongoDB connection
-   */
-  await mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+
+
+
+// POST /api/blog/
+/**
+ * * @swagger
+ * * /api/blog/:
+ * *   post:
+ * *     summary: Create a new blog post
+ * *     description: Create a new blog post with the provided title, content, and tags.
+ * *     tags: [Blog]
+ * *     requestBody:
+ * *       required: true
+ * *       content:
+ * *         application/json:
+ * *           schema:
+ * *             type: object
+ * *             properties:
+ * *               title:
+ * *                 type: string
+ * *                 description: The title of the blog post.
+ * 
+ */
+router.post('/blog', addPost);
   
-  // Check if the collections exist
-  const collections = await mongoose.connection.db.listCollections().toArray();
-  console.log(collections);
-} catch (error) {
-  console.error(`Error:: ${error.message} encountered connecting to MongoDB:: ${error}`);
-} finally {
-  await mongoose.disconnect();
-  process.exit(1);
-}
+
+router.get('/blog', getPosts);
+
+module.exports = router;

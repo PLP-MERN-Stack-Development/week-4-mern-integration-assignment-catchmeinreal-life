@@ -11,9 +11,15 @@ const path = require('path');
 const client = require('./config/database');
 
 // Import routes
-// const postRoutes = require('./routes/posts');
+const postRoutes = require('./routes/blog');
 // const categoryRoutes = require('./routes/categories');
 const authRoutes = require('./routes/auth');
+
+/**
+ * Import middleware
+ */
+const verify = require('../middleware/verified');
+const protect = require('../middleware/auth');
 
 // Load environment variables
 dotenv.config();
@@ -39,7 +45,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // API routes
-app.use('/api/posts', postRoutes);
+app.use('/api/posts',protect, verify, postRoutes);
 // app.use('/api/categories', categoryRoutes);
 app.use('/api/auth', authRoutes);
 

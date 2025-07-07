@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import { authService } from '../services/api'
 
 function Navbar() {
   const location = useLocation();
@@ -9,11 +10,9 @@ function Navbar() {
   const isTodosPage = pathname.startsWith('/blog');
 
   // Simulated user (replace later)
-  const userProfile = {
-    name: 'Eric M.',
-    email: 'eric@mochatasks.com',
-    avatar: 'https://i.pravatar.cc/40?img=3',
-  };
+
+  const userProfile = authService.getCurrentUser()
+  console.log(userProfile)
 
   if (isAuthPage) {
     return (
@@ -60,7 +59,7 @@ function Navbar() {
       </div>
 
       {/* Profile Section */}
-      {isTodosPage && (
+      {isTodosPage && userProfile ? (
         <div className="hidden md:flex items-center space-x-3">
           <img
             src={userProfile.avatar}
@@ -72,7 +71,7 @@ function Navbar() {
             <p className="text-[#D7CCC8]">{userProfile.email}</p>
           </div>
         </div>
-      )}
+      ): <p>no user data to showcase</p>}
     </nav>
   );
 }
