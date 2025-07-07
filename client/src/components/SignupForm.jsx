@@ -49,7 +49,9 @@ function SignupForm()  {
       <h2>Sign Up</h2>
 
       <div>
-        <p>Have an account?<span><a href=''>Login in now</a></span></p>
+        <p>Have an account?<span><Link to="/login" className="">
+          <span className="">LogIn</span>
+        </Link></span></p>
       </div>
 
       <div>
