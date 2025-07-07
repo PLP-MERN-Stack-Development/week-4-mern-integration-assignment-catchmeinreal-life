@@ -6,7 +6,7 @@ const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const User = require('../models/User');
 
-const writeFileExample = require('../utils/mail');
+const userProfile = require('../utils/mail');
 
 // POST /api/auth/signup
 router.post('/signup', async (req, res) => {
@@ -28,7 +28,11 @@ router.post('/signup', async (req, res) => {
     
     const verifyUrl = `${process.env.SERVER_URL}/verify/${verificationToken}`;
     
-    // Send verification email
+    /**
+     * Store user data >> data.json
+     * Send verification email >> mail.js
+     * 
+     */
     
     writeFileExample(verificationToken,email, verifyUrl, user);
     res.status(200).json({ message: 'Verification email sent. Please check your inbox.' });

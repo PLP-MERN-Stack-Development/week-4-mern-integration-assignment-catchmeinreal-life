@@ -8,6 +8,11 @@ import Login from './pages/Login';
  * verification page
  */
 import Verification from './pages/Verification';
+/**
+ * blogs page
+ */
+import Blogs from './pages/Blogs';
+
 
 /**
  * 
@@ -26,6 +31,7 @@ export default function App() {
         <Route path='/signup' element={<SignUpPage />}/>
         <Route path='/verification' element={<Verification />}/>
         <Route path='/' element={<Home />}/>
+        <Route path='/blog' element={<Blogs />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

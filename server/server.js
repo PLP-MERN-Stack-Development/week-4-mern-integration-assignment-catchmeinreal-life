@@ -1,3 +1,4 @@
+'use strict';
 // server.js - Main server file for the MERN blog application
 
 // Import required modules
@@ -38,7 +39,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // API routes
-// app.use('/api/posts', postRoutes);
+app.use('/api/posts', postRoutes);
 // app.use('/api/categories', categoryRoutes);
 app.use('/api/auth', authRoutes);
 
@@ -59,7 +60,8 @@ app.use((err, req, res, next) => {
 // Connect to MongoDB Atlas
 mongoose.connect(client.s.url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB Atlas'))
-  .catch(err => console.error('MongoDB connection error:', err));
+  .catch(err => console.error('MongoDB connection error:', err.message)
+);
 
 // Start server
 app.listen(PORT, () => {
