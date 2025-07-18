@@ -1,10 +1,13 @@
-import SignupForm from "../components/SignupForm"
+import Navbar from '../components/Navbar';
 
-export default function SignUpPage() {
+export default function SignIn() {
 
-  return (
-    <>
-    <SignupForm />
-    </>
-  )
+    return (
+        <>
+        <Navbar />
+        <section className="Page">
+            <h1>sign In page</h1>
+        </section>
+        </>
+    )
 }
