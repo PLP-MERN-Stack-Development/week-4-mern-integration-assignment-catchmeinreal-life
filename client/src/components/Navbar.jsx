@@ -19,27 +19,39 @@ function Navbar() {
     return (
       <nav className="navBar">
         {/* Centered Logo */}
-        <Link to="/" className="">
-          <span className="text-[#D7CCC8]">Home</span>
-        </Link>
+       
 
         {/* Auth Switch */}
         <div className="absolute right-6 text-sm">
-          {pathname === '/login' ? (
-            <span>
-              No account?{' '}
-              <Link to="/signup" className="text-[#D7CCC8] underline hover:text-white">
-                Sign up
-              </Link>
-            </span>
-          ) : (
-            <span>
-              Already a user?{' '}
-              <Link to="/login" className="text-[#D7CCC8] underline hover:text-white">
-                Log in
-              </Link>
-            </span>
-          )}
+          <ul>
+            <li><Link to="/" className="">
+               <span className="text-[#D7CCC8]">Home</span>
+               </Link>
+            </li>
+            <li>About</li>
+            <li>Contact</li>
+            <li>Blogs</li>
+            {pathname === '/login' ? (
+              <li>
+                <span>
+                No account?{' '}
+                <Link to="/signup" className="text-[#D7CCC8] underline hover:text-white">
+                  Sign up
+                </Link>
+              </span>
+              </li>
+            ) : (
+              <span>
+                <li>Already a user?{' '}
+                  <Link to="/login" className="text-[#D7CCC8] underline hover:text-white">
+                    Log in
+                  </Link>
+                </li>
+                
+              </span>
+            )}
+
+          </ul>
         </div>
       </nav>
     );
