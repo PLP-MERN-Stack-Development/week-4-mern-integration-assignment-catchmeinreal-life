@@ -14,6 +14,7 @@ const client = require('./config/database');
 const postRoutes = require('./routes/blog');
 // const categoryRoutes = require('./routes/categories');
 const authRoutes = require('./routes/auth');
+const postRoutes = require('./routes/blog')
 
 /**
  * Import middleware
@@ -45,7 +46,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // API routes
-app.use('/api/posts',protect, verify, postRoutes);
+app.use('/api/posts', postRoutes);
 // app.use('/api/categories', categoryRoutes);
 app.use('/api/auth', authRoutes);
 

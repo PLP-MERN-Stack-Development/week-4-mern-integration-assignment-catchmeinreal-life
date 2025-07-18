@@ -1,4 +1,4 @@
-
+import Navbar from '../components/Navbar';
 // username, email, password 
 
 import { authService } from '../services/api'
@@ -46,6 +46,8 @@ export default function Signup() {
   };
 
   return (
+    <>
+    <Navbar />
     <div>
       <Navbar />
       <h2>LogIn</h2>
@@ -61,5 +63,6 @@ export default function Signup() {
       <p>{message}</p>
       <ToastContainer />
     </div>
+    </>
   );
 }

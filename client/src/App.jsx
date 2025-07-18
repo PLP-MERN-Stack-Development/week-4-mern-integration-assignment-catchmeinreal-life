@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 /**pages */
 import Home from './pages/Home';
+import Blog from './pages/Blogs'
 import SignUpPage from './pages/Signin';
 import Login from './pages/Login';
 
@@ -21,6 +22,7 @@ import Blogs from './pages/Blogs';
 import NotFound from './pages/NotFound';
 
 
+
 export default function App() {
 
 
@@ -30,8 +32,8 @@ export default function App() {
         <Route path='/login' element={<Login />}/>
         <Route path='/signup' element={<SignUpPage />}/>
         <Route path='/verification' element={<Verification />}/>
-        <Route path='/' element={<Home />}/>
-        <Route path='/blog' element={<Blogs />} />
+        <Route path='/home' element={<Home />}/>
+        <Route path='/blog' element={<Blog />}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

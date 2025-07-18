@@ -46,7 +46,7 @@ export const postService = {
     if (category) {
       url += `&category=${category}`;
     }
-    const response = await api.get(url);
+    const response = await api.get('/blog');
     return response.data;
   },
 
