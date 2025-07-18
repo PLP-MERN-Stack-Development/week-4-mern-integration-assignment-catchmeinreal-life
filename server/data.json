@@ -1,22 +1,22 @@
 {
-  "token": "ff038bffb60fcca2e6ee2ea57f0c171b7946e4b58db8dced811d3bf6ca53483e",
+  "token": "4b426341f2b392f08104711883a940db557c81a02c71d13214d99f1353baf048",
   "from": "ericmatutu125@gmail.com",
-  "to": "ericmatutu125@gmail.com",
+  "to": "mutuku125@outlook.com",
   "subject": "Verify Your Email",
-  "html": "<p>Click <a href=\"http://localhost:5000/verify/ff038bffb60fcca2e6ee2ea57f0c171b7946e4b58db8dced811d3bf6ca53483e\">here</a> to verify your email.</p>",
+  "html": "<p>Click <a href=\"http://localhost:5000/verify/4b426341f2b392f08104711883a940db557c81a02c71d13214d99f1353baf048\">here</a> to verify your email.</p>",
   "data": {
-    "name": "eric",
-    "email": "ericmatutu125@gmail.com",
-    "password": "$2b$10$JTiUqrVxBOgaE.Iv7yuCL.oXH1xxEEVnFg3n1TL3.xJ0yskcNp7ee",
+    "name": "mutuku",
+    "email": "mutuku125@outlook.com",
+    "password": "$2b$10$M/oJ7/sjkpjJS1s4ryD65O8qQUkYlui4pjiPrqdRkcXvcZihXscji",
     "avatar": "default-avatar.jpg",
     "role": "user",
     "isActive": true,
     "isVerified": false,
-    "verificationToken": "ff038bffb60fcca2e6ee2ea57f0c171b7946e4b58db8dced811d3bf6ca53483e",
+    "verificationToken": "4b426341f2b392f08104711883a940db557c81a02c71d13214d99f1353baf048",
     "posts": [],
-    "_id": "6869d8b2b5991cb47555747d",
-    "createdAt": "2025-07-06T02:00:18.550Z",
-    "updatedAt": "2025-07-06T02:00:18.550Z",
+    "_id": "687aa68a4b2f878ac77b7a79",
+    "createdAt": "2025-07-18T19:54:50.643Z",
+    "updatedAt": "2025-07-18T19:54:50.643Z",
     "__v": 0
   }
 }
