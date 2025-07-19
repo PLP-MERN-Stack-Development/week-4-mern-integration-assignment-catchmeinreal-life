@@ -46,8 +46,6 @@ const addPost = async (req, res) => {
   }
 };
 
-const Post = require('../models/Post'); // adjust the path if different
-
 const getPosts = async (req, res) => {
   try {
     const posts = await Post.find({}).sort({ createdAt: -1 }); 
