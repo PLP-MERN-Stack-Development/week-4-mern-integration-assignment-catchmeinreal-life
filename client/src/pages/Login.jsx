@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 // import { useEffect } from 'react';
 
-import Navbar from '../components/Navbar';
+
 
 
 export default function Signup() {
@@ -49,7 +49,6 @@ export default function Signup() {
     <>
     <Navbar />
     <div>
-      <Navbar />
       <h2>LogIn</h2>
       <form onSubmit={onSubmit}>
 
