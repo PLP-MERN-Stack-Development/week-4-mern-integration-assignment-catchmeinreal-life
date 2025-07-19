@@ -32,7 +32,7 @@ export default function App() {
         <Route path='/login' element={<Login />}/>
         <Route path='/signup' element={<SignUpPage />}/>
         <Route path='/verification' element={<Verification />}/>
-        <Route path='/home' element={<Home />}/>
+        <Route path='/' element={<Home />}/>
         <Route path='/blog' element={<Blog />}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
