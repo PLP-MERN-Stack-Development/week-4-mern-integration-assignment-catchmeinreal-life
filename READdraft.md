@@ -1,5 +1,8 @@
 # mochaBlog Website
 
+## live demo
+https://week-4-mern-blogs.onrender.com
+
 ## Project Description
 This is a blog website where users can:
 1. Register for an account or log in with existing credentials.
