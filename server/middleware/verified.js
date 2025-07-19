@@ -15,10 +15,10 @@ const verify = async (req, res, next) => { // Middleware to protect routes
 
         next();
     } catch (error) {
-        res.status(401).json({ message: "Invaid Token" });
+        res.status(401).json({ message: "Invalid Token" });
     }
 };
 
 
 
-export default verify;
+module.exports = verify;
