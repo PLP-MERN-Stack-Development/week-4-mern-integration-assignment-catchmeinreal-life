@@ -18,18 +18,12 @@ import Navbar from '../components/Navbar';
 // Extras:
 // Search bar or category filter (optional)
 // Pagination or "Load more" button
-<<<<<<< HEAD
 
 
 
-
-import {Link} from 'react-router-dom'
-// import { useState } from 'react'
-=======
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
->>>>>>> client_auth
+import {Link, useNavigate} from 'react-router-dom'
+import { useState } from 'react'
 
 // import './App.css' import css
 import Button from '../components/Button';
