@@ -8,10 +8,11 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
 
-const client = require('./config/database');
+const connectDB = require('./config/database');
+
+//
 
 // Import routes
-const postRoutes = require('./routes/blog');
 // const categoryRoutes = require('./routes/categories');
 const authRoutes = require('./routes/auth');
 const postRoutes = require('./routes/blog')
@@ -19,8 +20,8 @@ const postRoutes = require('./routes/blog')
 /**
  * Import middleware
  */
-const verify = require('../middleware/verified');
-const protect = require('../middleware/auth');
+// const verify = require('../middleware/verified');
+// const protect = require('./middleware/auth.js');
 
 // Load environment variables
 dotenv.config();
@@ -46,7 +47,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // API routes
-app.use('/api/posts', postRoutes);
+app.use('/api/Blog', postRoutes);
 // app.use('/api/categories', categoryRoutes);
 app.use('/api/auth', authRoutes);
 
@@ -64,14 +65,11 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Connect to MongoDB Atlas
-mongoose.connect(client.s.url, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Connected to MongoDB Atlas'))
-  .catch(err => console.error('MongoDB connection error:', err.message)
-);
+
 
 // Start server
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
+  await connectDB(); // Connect to MongoDB Atlas
   console.log(`Server running on port ${PORT}`);
 });
 
