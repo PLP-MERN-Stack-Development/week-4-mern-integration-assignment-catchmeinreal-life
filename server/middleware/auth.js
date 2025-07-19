@@ -20,4 +20,4 @@ const protect = async (req, res, next) => { // Middleware to protect routes
 
 
 
-export default protect;
+module.exports = protect;
